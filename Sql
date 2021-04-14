@@ -1,0 +1,24 @@
+CREATE TABLE [dbo].[Assignments] (
+    [Id]         INT IDENTITY (1, 1) NOT NULL,
+    [EmployeeId] INT NOT NULL,
+    [TaskId]     INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Assignments_ToEmployees] FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employees] ([Id]),
+    CONSTRAINT [FK_Assignments_ToTasks] FOREIGN KEY ([TaskId]) REFERENCES [dbo].[Tasks] ([Id])
+    );  
+    
+    
+    CREATE TABLE [dbo].[Employees] (
+    [Id]       INT          IDENTITY (1, 1) NOT NULL,
+    [FistName] VARCHAR (15) NOT NULL,
+    [LastName] VARCHAR (30) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+    );    
+    
+    
+    CREATE TABLE [dbo].[Tasks] (
+    [Id]         INT          IDENTITY (1, 1) NOT NULL,
+    [Name]       VARCHAR (50) NOT NULL,
+    [Difficulty] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+    );
